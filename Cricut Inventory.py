@@ -1,5 +1,7 @@
+#vinyl color dictionary
 vinyl_stock = {"red": 10, "blue": 10, "black": 10, "yellow": 5, "white": 10, "purple": 10, "green": 10}
 
+#User input which color vinyl they used
 color = input ("What color did you use? ")
 
 def menu():
@@ -11,6 +13,7 @@ def menu():
 
 run = menu()
 
+#while true loop to run while entering vinyl stock
 while True:
     if run == "1":
         addStock = input ("What color are you adding to the stock? ")
@@ -34,6 +37,7 @@ while True:
     elif run == "q":
         break
 
+#print to end program        
 print("The program has ended")
 
 
