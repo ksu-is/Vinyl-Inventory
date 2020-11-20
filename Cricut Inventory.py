@@ -1,38 +1,44 @@
 #vinyl color dictionary
-vinyl_stock = {"red": 10, "blue": 10, "black": 10, "yellow": 5, "white": 10, "purple": 10, "green": 10}
+#changed vinyl_stock to pantry_inventory
+#changed contents of pantry_inventory
+pantry_inventory = {"milk gallon": 10, "flour": 10, "egg carton": 10, "sugar": 5, "salt": 10, "coffee": 10, "broccoli": 10}
 
 #User input which color vinyl they used
-color = input ("What color did you use? ")
+#changed this input function to accomodate my pantry_inventory
+food = input ("What food item did you use? ")
 
+#changed language here
 def menu():
-    print ("Press 1: To add stock. ")
-    print ("Press 2: To check stock. ")
-    print ("Press 3: To enter color stock used. ")
+    print ("Press 1: To add to pantry. ")
+    print ("Press 2: To check pantry. ")
+    print ("Press 3: To enter a food item used. ")
     print ("Press q: To quit the program. ")
     return input ("What would you like to do? ")
 
 run = menu()
 
 #while true loop to run while entering vinyl stock
+#changed to fit pantry_inventory syntax
 while True:
     if run == "1":
-        addStock = input ("What color are you adding to the stock? ")
-        amount = int(input("How many roles are you adding? "))
-        vinyl_stock[addStock] = amount
+        addStock = input ("What food item are you adding to the pantry? ")
+        amount = int(input("How many of this item are you adding? "))
+        #fixed issue in code where adding an item would not add it but instead replace it with amount added.
+        pantry_inventory[addStock] += amount
         run = menu()
     
     elif run == "2":
-        for key, value in vinyl_stock.items():
+        for key, value in pantry_inventory.items():
             print("{}: {}".format(key, value))
         run = menu()
     
     elif run == "3":
-        if color in vinyl_stock:
-            vinyl_stock[color] -= 1
-            print (vinyl_stock)
+        if food in pantry_inventory:
+            pantry_inventory[food] -= 1
+            print (pantry_inventory)
             run = menu()
         else:
-            print ("{} is out of stock".format(color))
+            print ("{} is out of stock".format(food))
             run = menu()
     elif run == "q":
         break
